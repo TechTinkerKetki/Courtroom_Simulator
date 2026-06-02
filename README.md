@@ -1,26 +1,27 @@
-# AGENTS OF JUSTICE
-This project is an AI-driven courtroom simulation system using Groq API, LLaMA, and Gradio. This project simulates a courtroom trial with autonomous legal agents representing the Judge, Defense Lawyer and Prosecution Lawyer. Built with fast reasoning, real-time interaction, and modularity for scalability.
+ # AGENTS OF JUSTICE 
 
-    # OVERVIEW
-This project simulates a courtroom environment where multiple autonomous agents play roles such as the Judge, Lawyers, Defendent , Plaintiff and witness. These agents communicate and make decisions based on their individual prompts, using the Groq API to interface with the LLaMA model( llama3-8b-8192) for real-time reasoning.
+AI-Driven Autonomous Courtroom Simulation
 
-    # FEATURES
-1> Multi-Agent System: Independent agents for Judge, Defense Lawyer, DEfendant, Plaintiff and Prosecution Lawyer.
+Agents of Justice is a sophisticated multi-agent simulation system designed to replicate the complexities of a courtroom trial. By leveraging the Groq API for ultra-fast inference with LLaMA (llama3-8b-8192) and orchestrating the trial flow through LangGraph, the system enables autonomous, context-aware interaction between legal personas.
+ 
+## Key FEATURES
+- Multi-Agent Ecosystem: Independent agents for the Judge, Defense Lawyer, Prosecution Lawyer, Defendant, Plaintiff, and Witness, each operating under specific legal personas.
 
-2> Gradio Interface: User-friendly web UI for trial initiation and interaction.
+- Persistent Context & Memory: Unlike static chatbots, every agent maintains a dynamic memory of the trial. Agents retain awareness of previous testimony, objections, and evidence presented, ensuring coherent, long-term narrative consistency.
 
-3> Groq + LLaMA Integration: Fast and efficient LLM-driven decision-making.
+- Structured Flow via LangGraph: The trial progression is not linear; it is managed by LangGraph to handle complex decision-making, conditional logic (e.g., handling objections), and procedural sequencing.
 
-4> Context Retention: Agents remember prior conversations and actions that is they retain memory.
+- Groq-Powered Performance: Real-time reasoning capabilities allow for fluid, conversational interaction without the latency typical of standard LLM implementations.
 
-5> Customizable Prompts: Easily change agent behavior and trial flow using prompt templates.
+-  Customizable Legal Logic: Modular prompt templates allow users to tweak agent behaviors, inject new case files, or alter the legal jurisdiction of the simulation.
 
-6> Interactive Simulation: Users can observe or influence courtroom discussions.
-
-
+- Interactive Gradio UI: A clean, user-friendly web interface for initiating, monitoring, and influencing the courtroom proceedings.
 
 
-  #  Architecture
+## Architecture & Technical Stack
+The system is designed for modularity, separating agent logic from the state-management flow of the trial
+
+
 Folder Structure
 bash
 Copy
@@ -34,55 +35,46 @@ courtroom-sim<br>
 │   ├── witness.py           
 
 │
-├── config/                     # Stores prompt templates for agents and env<br>
+├── config/                            # Stores prompt templates for agents and env<br>
 │   └── prompts.py<br>
 │   └── env.py<br>
 │   └──utils.py
 
 
-├── trial.py                       # LangGraph flow logic<br>
-├── file.py                        # To preprocess the cases.csv file <br>
+├── trial.py                           # LangGraph flow logic<br>
+├── file.py                            # To preprocess the cases.csv file <br>
 
 
-├── app.py                      # Main entry point with Gradio UI<br>
-├── requirements.txt             # List of dependencies<br>
-└── README.md                    # Project documentation<br>
+├── app.py                            # Main entry point with Gradio UI<br>
+├── requirements.txt                  # List of dependencies<br>
+└── README.md                         # Project documentation<br>
 
 ├── processed_data.csv          
 ├── cases.csv
 
-  Key Components:
-1. Agents: Each agent is a Python module with specific behavior and prompts that simulate legal roles.
-   
-2.Prompts: Templates stored in prompts/ that define how each agent interacts and responds. These can be customized to suit different case scenarios.
+## Core Components
+- Agent Module: The foundation of all characters. Each agent class integrates with the Groq API and manages its own short-term and long-term memory, allowing them to "remember" previous arguments and evidence during the cross-examination process.
 
-3. API Client: Manages communication with the Groq API for inference and decision-making, based on the case data provided by agents.
+-LangGraph Controller (trial.py): Acts as the courtroom clerk and judge. It manages the state of the trial, ensuring that the dialogue follows logical procedural steps and handling transitions between arguments and witness statements.
 
-   
-4. Main.py: The entry point of the application. It integrates the agents, prompts, and the Gradio UI to manage real-time simulation.
-   
-5. LangGraph: The structured flow of the trial is managed using LangGraph, which ensures that the sequence of actions, such as presenting evidence or making arguments, follows a logical 
-   order and also supports conditional flow.
+-Prompt Engine: Located in config/, this layer allows for dynamic injection of legal context. By modifying these templates, you can change a trial from a civil dispute to a criminal proceeding seamlessly.
 
+-Gradio Interface: The main gateway (app.py) provides real-time visibility into the dialogue history and the current state of the simulation.
 
-  # IMPLEMENTATION
+## IMPLEMENTATION
+
 1. Clone the Repository
-
-"git clone https://github.com/VanshikaGupta001/Cynaptics-Induction-phase2.git"
-
+"git clone (https://github.com/TechTinkerKetki/Courtroom_Simulator)"
 
 2. Create a Virtual Environment
-
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 3. Install Dependencies
 pip install -r requirements.txt
 
-
-5. Add Your Groq API Key
+4. Add Your Groq API Key
 Create a .env file and add the following:
-
 GROQ_API_KEY=your_groq_api_key
 
 5. Run the Application
@@ -107,6 +99,4 @@ Use vector-based memory storage (like FAISS or other vector databases) to store 
 5. Better Case Upload/Parsing:
 Allow users to upload case files (PDF, DOCX) and parse them into structured data to drive the trial simulation.
 
-Made by:
-Vanshika Gupta 
-Ketki Patil
+### Ketki Patil and Vanshika Gupta
