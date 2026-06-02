@@ -30,24 +30,24 @@ Edit
 
 courtroom-sim<br>
 │
-├── agents/                            # Contains agent logic <br>
+├── agents/                         &emsp;   # Contains agent logic <br>
 │   ├── base_agent.py            
 │   ├── witness.py           
 
 │
-├── config/                            # Stores prompt templates for agents and env<br>
+├── config/                         &emsp;   # Stores prompt templates for agents and env<br>
 │   └── prompts.py<br>
 │   └── env.py<br>
 │   └──utils.py
 
 
-├── trial.py                           # LangGraph flow logic<br>
-├── file.py                            # To preprocess the cases.csv file <br>
+├── trial.py                        &emsp;   # LangGraph flow logic<br>
+├── file.py                         &emsp;   # To preprocess the cases.csv file <br>
 
 
-├── app.py                            # Main entry point with Gradio UI<br>
-├── requirements.txt                  # List of dependencies<br>
-└── README.md                         # Project documentation<br>
+├── app.py                          &emsp;   # Main entry point with Gradio UI<br>
+├── requirements.txt                &emsp;   # List of dependencies<br>
+└── README.md                       &emsp;   # Project documentation<br>
 
 ├── processed_data.csv          
 ├── cases.csv
