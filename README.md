@@ -55,11 +55,11 @@ courtroom-sim<br>
 ## Core Components
 - Agent Module: The foundation of all characters. Each agent class integrates with the Groq API and manages its own short-term and long-term memory, allowing them to "remember" previous arguments and evidence during the cross-examination process.
 
--LangGraph Controller (trial.py): Acts as the courtroom clerk and judge. It manages the state of the trial, ensuring that the dialogue follows logical procedural steps and handling transitions between arguments and witness statements.
+- LangGraph Controller (trial.py): Acts as the courtroom clerk and judge. It manages the state of the trial, ensuring that the dialogue follows logical procedural steps and handling transitions between arguments and witness statements.
 
--Prompt Engine: Located in config/, this layer allows for dynamic injection of legal context. By modifying these templates, you can change a trial from a civil dispute to a criminal proceeding seamlessly.
+- Prompt Engine: Located in config/, this layer allows for dynamic injection of legal context. By modifying these templates, you can change a trial from a civil dispute to a criminal proceeding seamlessly.
 
--Gradio Interface: The main gateway (app.py) provides real-time visibility into the dialogue history and the current state of the simulation.
+- Gradio Interface: The main gateway (app.py) provides real-time visibility into the dialogue history and the current state of the simulation.
 
 ## IMPLEMENTATION
 
